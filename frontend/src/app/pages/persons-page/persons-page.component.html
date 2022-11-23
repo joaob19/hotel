@@ -1,0 +1,16 @@
+<div class="container">
+  <app-person-list
+    *ngIf="persons.length > 0; else emptyMessage"
+    [persons]="persons"
+    (onEdit)="getPersons()"
+    (onRemove)="getPersons()"
+  ></app-person-list>
+
+  <ng-template #emptyMessage>
+    <span class="empty-message">Não há nenhum usuário cadastrado</span>
+  </ng-template>
+
+  <button class="add-button" mat-fab (click)="addPerson()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,53 @@
+<button class="add-button" mat-raised-button (click)="addPerson()">Incluir pessoa</button>
+
+<div class="container">
+
+  <div class="title">
+    <span class="fs-16">Novo check-in</span>
+  </div>
+
+  <form [formGroup]="form" class="form">
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-row-item">
+        <mat-label>Data/Hora de entrada</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Formato DD/MM/AAAA hh:mm:ss"
+          formControlName="entryDate"
+          mask="d0/M0/0000 Hh:m0:s0"
+          [leadZeroDateTime]="true"
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-row-item">
+        <mat-label>Data/Hora de saida</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Formato DD/MM/AAAA hh:mm:ss"
+          formControlName="exitDate"
+          mask="d0/M0/0000 Hh:m0:s0"
+          [leadZeroDateTime]="true"
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-row-item">
+        <mat-label>Pessoa</mat-label>
+        <input type="text" matInput formControlName="person" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayPerson.bind(this)">
+          <mat-option *ngFor="let person of filteredPersons | async" [value]="person">
+            {{person.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-checkbox class="form-row-item" formControlName="haveVehicle">Possui veículo</mat-checkbox>
+    </div>
+
+    <button mat-raised-button color="primary" [disabled]="form.invalid || form.pristine" (click)="submit()">Salvar
+    </button>
+  </form>
+</div>

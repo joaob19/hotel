@@ -1,0 +1,15 @@
+<mat-drawer-container class="content">
+  <app-toolbar (onDrawerClick)="drawer.toggle()"></app-toolbar>
+
+  <mat-drawer class="drawer mat-elevation-z8" #drawer mode="side">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option (click)="navigate(option.route)" *ngFor="let option of drawerOptions" [value]="option.route">
+        <div class="drawer-option">
+          <mat-icon>{{option.icon}}</mat-icon>
+          {{option.label}}
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

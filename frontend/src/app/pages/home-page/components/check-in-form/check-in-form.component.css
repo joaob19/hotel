@@ -1,0 +1,44 @@
+.container{
+  widows: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  background-color: blue;
+  color: white;
+  padding: 8px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 24px;
+  gap: 8px;
+}
+
+.form-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-row-item{
+  width: 100%;
+}
+
+.fs-16{
+  font-size: 16px;
+}
+
+.add-button{
+  width: 150px;
+  background-color: blue !important;
+  color: white !important;
+  margin-bottom: 16px;
+}

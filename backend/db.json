@@ -1,0 +1,63 @@
+{
+  "check-in": [
+    {
+      "id": 1,
+      "entryDate": "2022-11-18T13:00:00.000Z",
+      "exitDate": "2022-11-22T15:00:00.000Z",
+      "person": {
+        "id": 2,
+        "name": "Maria de Souza",
+        "document": "45678913452",
+        "phone": "47988888888"
+      },
+      "totalValue": 540,
+      "haveVehicle": false
+    },
+    {
+      "id": 2,
+      "entryDate": "2022-11-01T12:00:00.000Z",
+      "exitDate": "2022-11-14T20:00:00.000Z",
+      "person": {
+        "id": 2,
+        "name": "Pedro Sauro",
+        "document": "78945612345",
+        "phone": "4733332222"
+      },
+      "totalValue": 1800,
+      "haveVehicle": null
+    },
+    {
+      "id": 3,
+      "entryDate": "2022-11-10T21:00:00.000Z",
+      "exitDate": "2022-11-25T20:00:00.000Z",
+      "person": {
+        "id": 1,
+        "name": "João da Silva",
+        "document": "12345679128",
+        "phone": "4799999999"
+      },
+      "totalValue": 2165,
+      "haveVehicle": true
+    }
+  ],
+  "person": [
+    {
+      "id": 1,
+      "name": "João da Silva",
+      "document": "12345679128",
+      "phone": "4799999999"
+    },
+    {
+      "id": 2,
+      "name": "Maria de Souza",
+      "document": "45678913452",
+      "phone": "47988888888"
+    },
+    {
+      "id": 3,
+      "name": "Pedro Sauro",
+      "document": "78945612345",
+      "phone": "4733332222"
+    }
+  ]
+}

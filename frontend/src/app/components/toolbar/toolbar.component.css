@@ -1,0 +1,13 @@
+.toolbar{
+  background-color: green;
+}
+
+.logo-title{
+  font-size: 24px;
+  color: white;
+  margin-right: 24px;
+}
+
+mat-icon{
+  color: white;
+}

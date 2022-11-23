@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="title">
+    <span class="fs-16">Consultas</span>
+  </div>
+
+  <div class="content">
+    <form [formGroup]="form" class="filters">
+      <span>Filtrar por:</span>
+      <mat-radio-group formControlName="status" aria-label="Filtrar pessoas">
+        <mat-radio-button *ngFor="let option of options" [value]="option.value">
+          {{option.label}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </form>
+
+    <mat-card class="w-100">
+      <div *ngIf="filteredDataSource.data.length > 0; else emptyMessage" class="list">
+        <table mat-table [dataSource]="filteredDataSource">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell class="fs-16" *matHeaderCellDef>Nome</th>
+            <td mat-cell class="table-data" *matCellDef="let element"> {{element.person.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="document">
+            <th mat-header-cell class="fs-16" *matHeaderCellDef>Documento</th>
+            <td mat-cell class="table-data" *matCellDef="let element"> {{element.person.document}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="entryDate">
+            <th mat-header-cell class="fs-16" *matHeaderCellDef>Entrada</th>
+            <td mat-cell class="table-data" *matCellDef="let element"> {{getFormattedIsoDate(element.entryDate)}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="exitDate">
+            <th mat-header-cell class="fs-16" *matHeaderCellDef>Saída</th>
+            <td mat-cell class="table-data" *matCellDef="let element"> {{getFormattedIsoDate(element.exitDate)}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="value">
+            <th mat-header-cell class="fs-16" *matHeaderCellDef>Valor gasto (R$)</th>
+            <td mat-cell class="table-data" *matCellDef="let element"> {{element.totalValue ?? '-'}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <ng-template #emptyMessage>
+        <span class="empty-message">Não há resultados a serem exibidos.</span>
+      </ng-template>
+
+      <mat-paginator
+        class="p-8"
+        #paginator [pageSizeOptions]="[5, 10, 15]"
+        showFirstLastButtons
+        aria-label="Selecionar paginas de consultas">
+      </mat-paginator>
+    </mat-card>
+  </div>
+</div>
